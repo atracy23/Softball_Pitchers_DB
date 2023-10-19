@@ -1,0 +1,321 @@
+/*
+Angie Tracy
+Dr. Payne
+CSD 440-311A
+Server Side Scripting
+2023/09/24
+Module 10 Programming Assignment
+
+This file creates the CSS for all pages
+*/
+
+
+   * {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    }
+
+    body{
+      font-family: Oswald, Verdana, Arial, sans-serif;
+      background-color:lightsteelblue;      
+/*      background-size: cover;    
+      background-position: center;
+      background-repeat: no-repeat;     */
+      
+    }
+    body-container{
+      height: 1000px;
+      overflow: auto;
+      margin-bottom: 200px;
+    }
+    tbody tr:nth-child(even){
+        background-color:steelblue;
+        color: white;
+    }
+    tbody tr:nth-child(odd){
+        background-color: darkblue;
+        color: white;
+    }
+
+    .navbar-container {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 15px 20px;
+      background-color: deepskyblue;
+      border-bottom: 1px solid darkblue;
+      width: 100%;
+      z-index: 10;
+    }
+
+    .logo {
+      display: flex;
+      align-items: left;
+      margin-left: 10px;
+    }
+
+    .logo img {
+      width: 40px;
+      height: 40px;
+      margin-right: 10px;
+      background-color: deepskyblue;
+      
+    }
+
+    ul.navbar li {
+      position: relative;
+      display: inline-block;
+      margin-right: 20px;
+    }
+
+    ul.navbar li a {
+      color: white;
+      text-decoration: none;
+      transition: color 0.3s ease-in-out;
+      padding: 5px 10px;
+    }
+
+    ul.navbar li.active a {
+      border: 2px solid white; /* Add a white outline for the active link */
+    }
+
+    ul.navbar li:hover a {
+      color: darkblue;
+    }
+
+    ul.navbar li ul {
+      display: none;
+      position: absolute;
+      top: 100%;
+      left: 0;
+      background-color: steelblue;
+      padding: 0;
+      z-index: 1;
+      border-radius: 4px;
+      box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+      transition: opacity 0.3s ease-in-out;
+    }
+
+    ul.navbar li:hover ul {
+      display: block;
+      opacity: 1;
+    }
+
+    ul.navbar li ul li {
+      display: block;
+      width: 100%;
+      margin: 0;
+    }
+
+    ul.navbar li ul li a {
+      color: white;
+      padding: 10px;
+      display: block;
+      text-decoration: none;
+      transition: background-color 0.3s ease-in-out;
+    }
+
+    ul.navbar li ul li a:hover {
+      background-color: white;
+    }
+
+    ul.navbar li.active a {
+      border: 2px solid white;  /* Add a white outline for the active link */
+    }
+
+    .title {
+      color: white;
+      margin: 0;
+      font-size: 34px;
+      font-weight: bold;
+      padding: 8px;
+    }
+
+    ::-webkit-scrollbar{
+    background: deepskyblue;
+    }
+
+    ::-webkit-scrollbar-thumb{
+        background-color: darkblue;
+        border-radius: 20px;
+        border: 3px solid steelblue;
+    }
+
+  .Hero img {
+    width: 25%;  
+    height: 100%;   
+/*    display: block;   */
+    margin-left: 10px;
+    margin-right: 40%;
+  }
+
+  .image-text-container {
+    position: relative;
+    top: 25%;
+    left: 200px;
+ /*   transform: translateY(50%);   */
+    color: white;
+    font-size: 20px;
+    font-weight: bold;
+    text-align: left;
+    margin: auto;
+    width: 400px;   
+    height: fit-content;
+    background-color: deepskyblue;
+    padding: 30px;
+    border: 2px solid steelblue; 
+  }
+  
+  .image-text-container a{
+    color: white;
+  }
+
+  li{
+    padding: 5px;
+  }
+ 
+  .button {
+    margin-left: 250px; 
+    margin-top: 700px; 
+    z-index: 3; 
+    position: absolute; 
+    height: fit-content; 
+    width: fit-content; 
+    padding: 2px;
+    font-size: medium;
+    color: whitesmoke;
+    background-color: darkblue;
+    box-shadow: deepskyblue;
+  }
+
+  .text-line {
+    margin: 0;
+    line-height: 1.2;
+  }
+
+/*
+    h1, h2{
+      background-color:darkblue;
+      color: #fff;
+      border: 1px solid deepskyblue;
+      padding: 10px;
+      text-align: center;
+      width: 500px;
+      margin: 0px auto;
+    }
+*/
+    h3{
+      text-align: center;
+      text-decoration: underline;
+      font-size: 34px;
+    }
+
+    div{
+      display: center;
+      text-align: left;
+      margin: auto;
+      justify-items: center;
+         
+      
+    }
+    .options{
+      background-color: lightgray; 
+      max-width: 800px;       
+      border: 2px solid steelblue; 
+    }
+    .messages{
+      background-image: linear-gradient(deepskyblue, white);
+      text-align: center;
+      font-size:large;
+      color: darkblue;
+      height: fit-content;
+      padding: 10px;
+      max-width: fit-content;
+      border: darkblue;
+    }
+
+    .errorMessage{
+      position: fixed;
+      top: 100px;
+      left: -250px;
+      background-image: linear-gradient(deepskyblue, white);
+      text-align: center;
+      font-size:large;
+      color: darkblue;
+      height: fit-content;
+      padding: 10px;
+      max-width: 600px;
+      border: darkblue;
+      z-index: 5;
+    }
+    
+    table{
+      background-color: deepskyblue;
+      border: 10px;
+      table-layout: fixed;
+      width: 700px;
+      margin-left: 40%;
+      margin-top: 20px;
+      margin-bottom: auto;
+      overflow-y: scroll;
+      z-index: 5;
+      position: relative;
+      padding-bottom: 50px;
+    }
+    thead {
+    position: sticky;
+    padding: 20px;
+    }
+    th, td{
+    padding: 15px; 
+    width: 125px; 
+    height: fit-content;
+    text-align: center;
+    color:#fff;
+    }
+    tr{
+      height: 30px;
+    }
+    td{
+      text-align: center;
+    }
+    caption{
+      background-image: linear-gradient(steelblue, white);
+      text-align: center;
+      font-size:x-large;
+      color: darkblue;
+      height: fit-content;
+      padding: 20px;
+      border: 2px solid darkblue;
+      border-radius: 4px;
+    }
+    
+    footer{
+      background-color: deepskyblue;
+      border: 1px solid darkblue;
+      color: white;
+      position:fixed;
+      bottom: 0;
+      width: 100%;
+      left: 0;
+      height: 50px;
+      margin-top: 20px;
+      align-items: center;
+      z-index: 10;
+    }
+    footer p{
+      color: white;
+      font-weight: 400;
+      text-align: left;
+      font-style: italic;
+      
+    }
+    footer a{
+      text-decoration-line: none;
+      color: white;
+    }
+    footer a:hover{
+      text-decoration-line:underline
+    }
+  

@@ -1,0 +1,100 @@
+<!--/
+Angie Tracy
+Dr. Payne
+CSD 440-311A
+Server Side Scripting
+2023/09/24
+Module 10 Programming Assignment
+
+This program lets the user pick the query options for the Softball pitcher stats
+-->
+
+<!DOCTYPE html>
+
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml" style="height: 100%;">
+<head>
+    <link rel="stylesheet" type="text/css" href="LandingPageStyle.css" />
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Raleway">
+
+    <title>Server-Side Scripting</title>
+    <script>
+        function toggle(source){
+            checkboxes=document.getElementsByName('col1', 'col2', 'col3', 'col4', 'col5', 'col6', 'col7', 'col8');
+            for(var i = 0; i < checkboxes.length; i++){
+                checkboxes[i].checked = source.checked;
+            }
+        }
+    </script>    
+</head>
+
+<body style="height: 100%;">
+  <!-- Creating navigation bar -->
+  <nav class="overlay">
+    <div class="navbar-container">
+      <div class="logo">
+        <img src="http://localhost/CSD_440/Database-baseball_01/logo.jpg" alt="Logo">
+        <h2 class="title">Softball Pitchers and Stats</h2>
+      </div>
+      <ul class="navbar">
+        <li><a href="AngieIndex.php">Home</a></li>
+        <li><a href="AngieQueryTable.php">Table</a> </li>
+        <li class="active"><a href="AngieQuery.html">Search</a></li>
+        <li><a href="AngieForm.html">Add/Edit Stats</a></li>
+      </ul>
+    </div>
+  </nav>
+
+  <form action="AngieQuery.php" method="post">
+    <div class="form-container" style="top: 150px; left:200px; padding-top: 10px;">
+    <!--      <div class="overlay2">          -->
+        <!--  Creating dropdown form for user to select which category to base sort upon -->
+            <p style="color: red;">* required fields</p><br>
+            <label for="selectedColumn">Please select the category to base your search upon:</label><label style="color: red;">*</label><br>
+            <select name="selectedColumn" id="selectedColumn" style="padding: 5px; font-size: medium; margin-top: 10px; color: darkblue; border-radius: 4px; border-color: darkblue;" required>
+                <option value="firstName">First Name</option>
+                <option value="lastName">Last Name</option>
+                <option value="school">School Name</option>
+                <option value="mascot">Mascot Name</option>
+                <option value="wins">Wins</option>
+                <option value="era">ERA</option>
+                <option value="shutOuts">Shut Outs</option>
+                <option value="strikeOuts">Strike Outs</option>
+            </select>
+    </div>
+
+    <div class="form-container" style="top: 200px; left:-50px;">
+        <!--      <div class="overlay2">          -->
+            <label for="columns">Please select the categories you wish to include in your search:</label><label style="color: red;">*</label>
+            <p style="color: red;">(Must choose at least one.)</p><br>
+            <!--  Creating dropdown form for user to select which category to base sort upon -->
+
+                <input type="checkbox" name="columns[]" value="all" checked/> All<br>
+                <input type="checkbox" name="columns[]" value="lastName" /> Last Name<br>
+                <input type="checkbox" name="columns[]" value="firstName"/> First Name<br>
+                <input type="checkbox" name="columns[]" value="school"/> School Name<br>
+                <input type="checkbox" name="columns[]" value="mascot"/> Mascot Name<br>
+                <input type="checkbox" name="columns[]" value="wins"/> Wins<br>
+                <input type="checkbox" name="columns[]" value="era"/> ERA<br>
+                <input type="checkbox" name="columns[]" value="shutOuts"/> Shut Outs<br>
+                <input type="checkbox" name="columns[]" value="strikeOuts"/> Strike Outs<br><br>
+    </div>
+
+    <div class="form-container" style="top: -50px; left:400px">
+        <!--      <div class="overlay2">          -->
+            <!--  Creating input form for user to select how many pitchers to include in sort  -->
+                <label for="columnCriteria">Please select the criteria for your search(ex.= Abbott, > 5, < 1.00, etc):</label><label style="color: red;">*</label><br><br>
+                <input type="radio" name="comparison" value=">" required> ><br>
+                <input type="radio" name="comparison" value="<"> <<br>
+                <input type="radio" name="comparison" value="="checked> =<br><br>
+
+                <input type="text" name="columnCriteria" value="" style="font-size: large; width: 150px; padding: 5px; border-color: red;" required>
+                <input type="submit" value="Submit" class="button" style="margin-left: 50px; padding: 5px;">
+    </div>
+</form>    
+<?php include 'Footer.php' ?>
+
+
+</body>
+</html>
