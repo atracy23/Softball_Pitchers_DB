@@ -25,7 +25,7 @@ This program uses MySqli and PHP to create a table to hold a few stats on ten of
 
 </head>
 
-<body style="height: 100%; background-image: url('http://localhost/Softball_Pitchers_DB/blue_background.jpg')">
+<body style="height: 100%; background-image: url('blue_background.jpg')">
 
 <?php include 'Header.php' ?>
 

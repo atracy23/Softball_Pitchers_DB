@@ -28,7 +28,7 @@ This program creates a nav bar for all pages.
           <i class="fas fa-bars"></i>
       </label>
       <div class="logo">
-        <img src="http://localhost/Softball_Pitchers_DB/logo.jpg" alt="Logo">
+        <img src="logo.jpg" alt="Logo">
         <h2 class="title">Softball Pitchers and Stats</h2>
       </div>
       <ul class="navbar">
