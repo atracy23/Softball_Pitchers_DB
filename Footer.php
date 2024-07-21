@@ -23,7 +23,7 @@ This program creates a footer for all pages.
 <body style="height: 100%;">
 
 <footer>
-    <a href="http://localhost/Softball_Pitchers_DB/AngieIndex.php" style="float: right; font-weight: 400; padding: 10px; color:darkblue; text-decoration: underline;"><i>Back to Home</i></a>
+    <a href="http://localhost/Softball_Pitchers_DB/Index.php" style="float: right; font-weight: 400; padding: 10px; color:darkblue; text-decoration: underline;"><i>Back to Home</i></a>
     <a href="http://localhost/Softball_Pitchers_DB" style="float: right; font-weight: 400; padding: 10px; color:darkblue; text-decoration: underline;"><i>Back to Softball Index</i></a>
     <p style="padding: 10px;">&#169; 2023 Tracy</p>
 </footer>
