@@ -24,7 +24,7 @@ This program uses MySQLi and PHP to drop a database table used to store softball
   <title>Server-Side Scripting</title>
 
 </head>
-<body style="height: 100%; background-image: url('http://localhost/Softball_Pitchers_DB/blue_background.jpg')">
+<body style="height: 100%; background-image: url('blue_background.jpg')">
 
 <?php include 'Header.php' ?>
 

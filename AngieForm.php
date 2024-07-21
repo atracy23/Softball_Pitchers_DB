@@ -78,8 +78,8 @@ mysqli_close($conn);
 ?>
 
 <!--  Images to be displayed on screen  -->
-<img src="http://localhost/Softball_Pitchers_DB/finch.jpg" alt="Jennie Finch" style="repeat: no-repeat; margin: 100px; position: absolute; height: 400px; z-index:2;" />
-<img src="http://localhost/Softball_Pitchers_DB/pitcher1.jpg" alt="Pitcher Silowhete" style="repeat: no-repeat; margin: 300px; position: absolute; height: 400px; z-index:1;" />
+<img src="finch.jpg" alt="Jennie Finch" style="repeat: no-repeat; margin: 100px; position: absolute; height: 400px; z-index:2;" />
+<img src="pitcher1.jpg" alt="Pitcher Silowhete" style="repeat: no-repeat; margin: 300px; position: absolute; height: 400px; z-index:1;" />
 
 <!-- Creating table to display query results  -->
 <div class="table-col" style="margin-left: 40%; margin-top: 5%; margin-right: 5%;">

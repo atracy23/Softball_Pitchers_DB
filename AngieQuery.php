@@ -132,8 +132,8 @@ This program uses MySqli and PHP to query a database table holding a few stats o
 ?>
 <!--  Images to be displayed on screen  -->
 
-<img src="http://localhost/Softball_Pitchers_DB/Abbott.jpg" alt="Monica Abbott" style="repeat: no-repeat; margin: 100px; position: absolute; height: 400px; z-index:2;" />
-<img src="http://localhost/Softball_Pitchers_DB/pitcher3.jpg" alt="Pitcher Silowhete" style="repeat: no-repeat; margin: 300px; position: absolute; height: 400px; z-index:1;" />
+<img src="Abbott.jpg" alt="Monica Abbott" style="repeat: no-repeat; margin: 100px; position: absolute; height: 400px; z-index:2;" />
+<img src="pitcher3.jpg" alt="Pitcher Silowhete" style="repeat: no-repeat; margin: 300px; position: absolute; height: 400px; z-index:1;" />
 
 <!-- Creating table to display query results  -->
 <div class="table-col" style="margin-left: 40%; margin-top: 5%; margin-right: 5%;">

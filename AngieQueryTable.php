@@ -64,7 +64,7 @@ $result = $conn->query($sql);
     <div class="row">
     <div class="img-col">
         <!--  Images to be displayed on screen  -->
-        <img src="http://localhost/Softball_Pitchers_DB/finch.jpg" alt="Jennie Finch" />
+        <img src="finch.jpg" alt="Jennie Finch" />
         
     </div>
     <!--  Button to create PDF of table data  -->
