@@ -14,6 +14,9 @@ This program lets the user add a new Softball pitcher and stats
 <html lang="en" xmlns="http://www.w3.org/1999/xhtml" style="height: 100%;">
 <head>
     <link rel="stylesheet" type="text/css" href="LandingPageStyle.css" />
+    <link rel="stylesheet" type="text/css" href="TableStyle.css" />
+    <link rel="stylesheet" type="text/css" href="ImageButtonStyle.css" />
+    <link rel="stylesheet" type="text/css" href="NavBarStyle.css" />
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Raleway">
@@ -23,24 +26,30 @@ This program lets the user add a new Softball pitcher and stats
 </head>
 
 <body style="height: 100%;">
-    <!-- Creating navigation bar -->
-  <nav class="overlay">
+  <!-- Creating navigation bar -->
+  <nav>
     <div class="navbar-container">
+      <input type="checkbox" id="check">
+      <label for="check" class="checkbtn">
+          <i class="fas fa-bars"></i>
+      </label>
       <div class="logo">
-        <img src="http://localhost/CSD_440/Database-baseball_01/logo.jpg" alt="Logo">
+        <img src="http://localhost/Softball_Pitchers_DB/logo.jpg" alt="Logo">
         <h2 class="title">Softball Pitchers and Stats</h2>
       </div>
       <ul class="navbar">
-        <li><a href="AngieIndex.php">Home</a></li>
-        <li><a href="AngieQueryTable.php">Table</a> </li>
-        <li><a href="AngieQuery.html">Search</a></li>
-        <li class="active"><a href="AngieForm.html">Add/Edit Stats</a></li>
+        <li><a class="active" href="AngieIndex.php">Home</a></li>
+        <li><a href="AngieQueryTable.php">Stats Table</a> </li>
+        <li><a href="AngieQuery.html">Search Stats</a>
+        <li><a href="AngieForm.html">Add Stats</a>
       </ul>
     </div>
-  </nav>
+</nav>
 
-  <form action="AngieForm.php" method="post">
-    
+  
+
+<form action="AngieForm.php" method="post">
+  <div class="image-text-container" style="margin-top: 5%; margin-left: 40%; margin-right: 5%;">
     <div class="form-container" style="top: 200px; left:150px; width: fit-content">
         <p>If you are editing an existing pitcher's stats, please enter first</p>
         <p>and last name along with any changes that need to be made.</p>
@@ -49,10 +58,10 @@ This program lets the user add a new Softball pitcher and stats
         <p>along with any stats.  Stats left blank will be stored as 0.</p><br>
         <p style="color: red;">* required fields</p><br>
         
-        <label for "lastName">Please enter the pitcher's last name:* </label>
-        <input type="text" name="lastName" value="" style="font-size: large; width: 150px; padding-left: 5px;" required><br><br>
         <label for "firstName">Please enter the pitcher's first name:* </label>
         <input type="text" name="firstName" value="" style="font-size: large; width: 150px; padding-left: 5px;" required><br><br>
+        <label for "lastName">Please enter the pitcher's last name:* </label>
+        <input type="text" name="lastName" value="" style="font-size: large; width: 150px; padding-left: 5px;" required><br><br>
         <label for "school">Please enter the pitcher's college name:* </label>
         <input type="text" name="school" value="" style="font-size: large; width: 150px; padding-left: 5px;"><br><br>
         <label for "mascot">Please enter the pitcher's college mascot name:* </label>
@@ -66,12 +75,10 @@ This program lets the user add a new Softball pitcher and stats
         <label for "strikeOuts">Please enter the pitcher's total college career strike outs: </label>
         <input type="text" name="strikeOuts" value="" style="font-size: large; width: 150px; padding-left: 5px;"><br><br>
 
-        <input type="submit" value="Submit" class="button" style="margin-left: 600px; padding: 5px;">
+        <input type="submit" value="Submit" class="button" style="margin-left: 500px; padding: 5px;">
     </div>
-
+  </div>
 </form>    
-<?php include 'Footer.php' ?>
-
 
 </body>
 </html>

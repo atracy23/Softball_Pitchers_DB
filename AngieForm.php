@@ -14,30 +14,20 @@ This program adds the user input of new Softball pitcher and stats to the databa
 <html lang="en" xmlns="http://www.w3.org/1999/xhtml" style="height: 100%;">
 
 <head>
+  <link rel="stylesheet" type="text/css" href="LandingPageStyle.css" />
   <link rel="stylesheet" type="text/css" href="TableStyle.css" />
+  <link rel="stylesheet" type="text/css" href="ImageButtonStyle.css" />
+  <link rel="stylesheet" type="text/css" href="NavBarStyle.css" />
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Raleway">
 
   <title>Server-Side Scripting</title>
-
+  
 </head>
-<body>
-<!-- Creating navigation bar -->
-<nav class="overlay">
-    <div class="navbar-container">
-      <div class="logo">
-        <img src="http://localhost/CSD_440/Database-baseball_01/logo.jpg" alt="Logo">
-        <h2 class="title">Softball Pitchers and Stats</h2>
-      </div>
-      <ul class="navbar">
-        <li><a href="AngieIndex.php">Home</a></li>
-        <li><a href="AngieQueryTable.php">Table</a> </li>
-        <li><a href="AngieQuery.html">Search</a></li>
-        <li class="active"><a href="AngieForm.html">Add/Edit Stats</a></li>
-      </ul>
-    </div>
-  </nav>
+<body style="background-image: none">
+
+<?php include 'Header.php' ?>
 
 <?php
 
@@ -86,12 +76,14 @@ mysqli_stmt_close($stmt);
 mysqli_close($conn);
 
 ?>
+
 <!--  Images to be displayed on screen  -->
-<img src="http://localhost/CSD_440/Database-baseball_01/finch.jpg" alt="Jennie Finch" style="repeat: no-repeat; margin: 100px; position: absolute; height: 400px; z-index:2;" />
-<img src="http://localhost/CSD_440/Database-baseball_01/pitcher1.jpg" alt="Pitcher Silowhete" style="repeat: no-repeat; margin: 300px; position: absolute; height: 400px; z-index:1;" />
+<img src="http://localhost/Softball_Pitchers_DB/finch.jpg" alt="Jennie Finch" style="repeat: no-repeat; margin: 100px; position: absolute; height: 400px; z-index:2;" />
+<img src="http://localhost/Softball_Pitchers_DB/pitcher1.jpg" alt="Pitcher Silowhete" style="repeat: no-repeat; margin: 300px; position: absolute; height: 400px; z-index:1;" />
 
 <!-- Creating table to display query results  -->
-<table>
+<div class="table-col" style="margin-left: 40%; margin-top: 5%; margin-right: 5%;">
+  <table>
     <thead>
         <caption>Some of the Best College Softball Pitchers of All Time</caption>
         <tr>
@@ -115,6 +107,9 @@ mysqli_close($conn);
                 }
             }
 ?>            
+    </tbody>
+  </table>
+</div>  <!--  Closing table-col  -->
 
 <?php include "Footer.php" ?>
 
