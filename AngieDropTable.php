@@ -14,6 +14,9 @@ This program uses MySQLi and PHP to drop a database table used to store softball
 <html lang="en" xmlns="http://www.w3.org/1999/xhtml">
 <head>
   <link rel="stylesheet" type="text/css" href="LandingPageStyle.css" />
+  <link rel="stylesheet" type="text/css" href="TableStyle.css" />
+  <link rel="stylesheet" type="text/css" href="ImageButtonStyle.css" />
+  <link rel="stylesheet" type="text/css" href="NavBarStyle.css" />
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Raleway">
@@ -21,22 +24,9 @@ This program uses MySQLi and PHP to drop a database table used to store softball
   <title>Server-Side Scripting</title>
 
 </head>
-<body>
-  <!-- Creating navigation bar -->
-  <nav class="overlay">
-    <div class="navbar-container">
-      <div class="logo">
-        <img src="http://localhost/CSD_440/Database-baseball_01/logo.jpg" alt="Logo">
-        <h2 class="title">Softball Pitchers and Stats</h2>
-      </div>
-      <ul class="navbar">
-        <li class="active"><a href="AngieIndex.php">Home</a></li>
-        <li><a href="AngieQueryTable.php">Table</a> </li>
-        <li><a href="AngieQuery.html">Search</a>
-        <li><a href="AngieForm.html">Add/Edit Stats</a>
-      </ul>
-    </div>
-  </nav>
+<body style="height: 100%; background-image: url('http://localhost/Softball_Pitchers_DB/blue_background.jpg')">
+
+<?php include 'Header.php' ?>
 
 <?php
 // Create connection to database
