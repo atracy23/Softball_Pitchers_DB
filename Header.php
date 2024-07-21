@@ -32,7 +32,7 @@ This program creates a nav bar for all pages.
         <h2 class="title">Softball Pitchers and Stats</h2>
       </div>
       <ul class="navbar">
-        <li><a class="active" href="AngieIndex.php">Home</a></li>
+        <li><a class="active" href="Index.php">Home</a></li>
         <li><a href="AngieQueryTable.php">Stats Table</a> </li>
         <li><a href="AngieQuery.html">Search Stats</a>
         <li><a href="AngieForm.html">Add Stats</a>
