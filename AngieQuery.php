@@ -14,39 +14,31 @@ This program uses MySqli and PHP to query a database table holding a few stats o
 <html lang="en" xmlns="http://www.w3.org/1999/xhtml">
 
 <head>
+  <link rel="stylesheet" type="text/css" href="LandingPageStyle.css" />
   <link rel="stylesheet" type="text/css" href="TableStyle.css" />
+  <link rel="stylesheet" type="text/css" href="ImageButtonStyle.css" />
+  <link rel="stylesheet" type="text/css" href="NavBarStyle.css" />
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Raleway">
 
   <title>Server-Side Scripting</title>
+
 </head>
-<body>
-  <!-- Creating navigation bar -->
-  <nav class="overlay">
-    <div class="navbar-container">
-      <div class="logo">
-        <img src="http://localhost/CSD_440/Database-baseball_01/logo.jpg" alt="Logo">
-        <h2 class="title">Softball Pitchers and Stats</h2>
-      </div>
-      <ul class="navbar">
-        <li><a href="AngieIndex.php">Home</a></li>
-        <li><a href="AngieQueryTable.php">Table</a> </li>
-        <li class="active"><a href="AngieQuery.html">Search</a></li>
-        <li><a href="AngieForm.html">Add/Edit Stats</a></li>
-      </ul>
-    </div>
-  </nav>
+<body style="background-image: none;">
+
+<?php include 'Header.php' ?>
 
 <?php
   try{
   if (isset($_POST['submit'])) {
+    echo "You have entered the try block";
     // check if any checkbox is checked
     if (isset($_POST['columns']) && !empty($_POST['columns'])) {
       // get the array of checked values
       $columns = $_POST['columns'];
       // join the values with a comma
-      $columns_values = implode(", ", $columns);
+      $columns_values= implode(", ", $columns);
       // echo the values
       echo "You have selected the following columns: $columns_values";
     } else {
@@ -73,35 +65,35 @@ This program uses MySqli and PHP to query a database table holding a few stats o
   
   switch ($selectedColumn) {
     case 'firstName':
-      $tableHeader = "Results of search for First Name of " . $selectedColumn;
+      $tableHeader = "Results of search for First Name of " . $columnCriteria;
       break;
 
     case 'lastName':
-      $tableHeader = "Results of search for Last Name of " . $selectedColumn;
+      $tableHeader = "Results of search for Last Name of " . $columnCriteria;
       break;
       
     case 'school':
-      $tableHeader = "Results of search for College  " . $selectedColumn;
+      $tableHeader = "Results of search for College  " . $columnCriteria;
       break;
           
     case 'mascot':
-      $tableHeader = "Results of search for Mascot  " . $selectedColumn;
+      $tableHeader = "Results of search for Mascot  " . $columnCriteria;
       break;
             
     case 'wins':
-      $tableHeader = "Results of search for Wins  " . $comparison . " " . $selectedColumn;
+      $tableHeader = "Results of search for Wins  " . $comparison . " " . $columnCriteria;
       break;
                  
     case 'era':
-      $tableHeader = "Results of search for ERAs  " . $comparison . " " . $selectedColumn;
+      $tableHeader = "Results of search for ERAs  " . $comparison . " " . $columnCriteria;
       break;
     
     case 'shutOuts':
-      $tableHeader = "Results of search for Shut Outs  " . $comparison . " " . $selectedColumn;
+      $tableHeader = "Results of search for Shut Outs  " . $comparison . " " . $columnCriteria;
       break;
                    
     default:
-      $tableHeader = "Results of search for Strike Outs  " . $comparison . " " . $selectedColumn;
+      $tableHeader = "Results of search for Strike Outs  " . $comparison . " " . $columnCriteria;
       break;
   }
 
@@ -140,19 +132,14 @@ This program uses MySqli and PHP to query a database table holding a few stats o
 ?>
 <!--  Images to be displayed on screen  -->
 
-<img src="http://localhost/CSD_440/Database-baseball_01/Abbott.jpg" alt="Monica Abbott" style="repeat: no-repeat; margin: 100px; position: absolute; height: 400px; z-index:2;" />
-<img src="http://localhost/CSD_440/Database-baseball_01/pitcher3.jpg" alt="Pitcher Silowhete" style="repeat: no-repeat; margin: 300px; position: absolute; height: 400px; z-index:1;" />
+<img src="http://localhost/Softball_Pitchers_DB/Abbott.jpg" alt="Monica Abbott" style="repeat: no-repeat; margin: 100px; position: absolute; height: 400px; z-index:2;" />
+<img src="http://localhost/Softball_Pitchers_DB/pitcher3.jpg" alt="Pitcher Silowhete" style="repeat: no-repeat; margin: 300px; position: absolute; height: 400px; z-index:1;" />
 
 <!-- Creating table to display query results  -->
+<div class="table-col" style="margin-left: 40%; margin-top: 5%; margin-right: 5%;">
 <?php
     // Display data from table
-    if($result->num_rows == 0){
-      ?>
-      <div class="messages">  
-        <p>No information available for that search criteria</p>
-      </div>
-    <?php
-    } else {
+    if($result){
       ?>
       <table>
       <thead>
@@ -189,9 +176,12 @@ This program uses MySqli and PHP to query a database table holding a few stats o
               }
               echo "<th>" . $colName . "</th>"; 
             }
-            echo "</tr></thead><tbody>";
-            
+            ?>
+            </tr></thead>
+            <tbody>
+            <?php
             // Displaying table results
+            
             while($row = $result->fetch_assoc()){
               echo "<tr>";
               foreach($row as $value){
@@ -199,12 +189,15 @@ This program uses MySqli and PHP to query a database table holding a few stats o
               }
               echo "</tr>";
             }
-      echo "</tbody></table>";
+      echo "</tbody></table></div>";
 
+    } else {
+      ?>
+      <div class="messages" style="margin-top: 15%;">  
+        <p>No information available for that search criteria</p>
+      </div>
+    <?php
     }
-    
-    $result->free();
-    
     ?>
  
 <?php include 'Footer.php' ?>
