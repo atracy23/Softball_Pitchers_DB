@@ -13,10 +13,13 @@ This program uses MySqli and PHP to query a database table holding a few stats o
 
 <html lang="en" xmlns="http://www.w3.org/1999/xhtml">
 <head>
+  <link rel="stylesheet" type="text/css" href="LandingPageStyle.css" />
   <link rel="stylesheet" type="text/css" href="TableStyle.css" />
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Raleway">
+  <link rel="stylesheet" type="text/css" href="ImageButtonStyle.css" />
+  <link rel="stylesheet" type="text/css" href="NavBarStyle.css" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <link rel="preconnect" href="https://fonts.googleapis.com"/>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Raleway"/>
 
   <title>Server-Side Scripting</title>
 
@@ -30,23 +33,11 @@ This program uses MySqli and PHP to query a database table holding a few stats o
 
 </head>
 
-<body>
-  <!-- Creating navigation bar -->
-  <nav class="overlay">
-    <div class="navbar-container">
-      <div class="logo">
-        <img src="http://localhost/CSD_440/Database-baseball_01/logo.jpg" alt="Logo">
-        <h2 class="title">Softball Pitchers and Stats</h2>
-      </div>
-      <ul class="navbar">
-        <li><a href="AngieIndex.php">Home</a></li>
-        <li class="active"><a href="AngieQueryTable.php">Table</a> </li>
-        <li><a href="AngieQuery.html">Search</a></li>
-        <li><a href="AngieForm.html">Add/Edit Stats</a></li>
-      </ul>
-    </div>
-  </nav>
-
+<body style="background-image: none;">
+<div class="scroll">
+    
+<?php include 'Header.php' ?>
+    
 <?php
 
 // Create connection to database
@@ -65,46 +56,58 @@ $sql = "SELECT * FROM sbPlayers";
 $result = $conn->query($sql);
 
 ?>
+<div class="main">
+    <div>
+        
+    </div>
 
-<!--  Images to be displayed on screen  -->
-<img src="http://localhost/CSD_440/Database-baseball_01/finch.jpg" alt="Jennie Finch" style="repeat: no-repeat; margin: 100px; position: absolute; height: 400px; z-index:2;" />
-<img src="http://localhost/CSD_440/Database-baseball_01/pitcher1.jpg" alt="Pitcher Silowhete" style="repeat: no-repeat; margin: 300px; position: absolute; height: 400px; z-index:1;" />
-<br><br>
-<button onclick="getPDF();" target="_blank" style="margin-left: 450px; margin-top: 175px; z-index: 3; position: absolute; height: fit-content; width: fit-content; padding: 10px;
-    font-size: medium; color: whitesmoke; background-color: darkblue; border: 1px solid deepskyblue;" 
-    onmouseover="this.style.backgroundColor= 'steelblue';" onmouseout="this.style.backgroundColor='darkblue';">Create PDF</button>
-    
+    <div class="row">
+    <div class="img-col">
+        <!--  Images to be displayed on screen  -->
+        <img src="http://localhost/Softball_Pitchers_DB/finch.jpg" alt="Jennie Finch" />
+        
+    </div>
+    <!--  Button to create PDF of table data  -->
+    <button class="button" onclick="getPDF();" target="_blank" style="margin-top: -50px; margin-left: 10px;">Create PDF</button>
+        
+    <div class="table-col">
+        <!-- Creating table to display query results  -->
+        <table style="z-index: 10;">
+            <thead>
+                <caption>Some of the Best College Softball Pitchers of All Time</caption>
+                <tr>
+                    <th style="width:200px;">Name</th>
+                    <th style="width:250px;">Team</th>
+                    <th>Wins</th>
+                    <th>ERA</th>
+                    <th>Shut Outs</th>
+                    <th>Strike Outs</th>
+                </tr>
+            </thead>
+            <tbody>
+                <?php
+                    // Display data from table
+                    if($result){
+                        while($row = $result->fetch_assoc()){
+                            echo "<tr><td style='width:200px'>" . $row['firstName'] . ' ' . $row['lastName'] . "</td><td style='width:250px'>" . $row['school'] . ' ' . $row['mascot'] . "</td><td>" . $row['wins'] . "</td>";
+                            echo "<td>" . $row['era'] . "</td><td>" . $row['shutOuts'] . "</td><td>" . $row['strikeOuts'] . "</td></tr>\n";
+                        }
+                    } else {
+                        
+                        echo '<tr><td colspan = "6">No information returned.  Please create the table. <a href="AngieCreateTable.php" style="color: white;">Create Table</a></td></tr>';
+                    }   
 
-<!-- Creating table to display query results  -->
-<table>
-    <thead>
-        <caption>Some of the Best College Softball Pitchers of All Time</caption>
-        <tr>
-            <th>Name</th>
-            <th>Team</th>
-            <th>Wins</th>
-            <th>ERA</th>
-            <th>Shut Outs</th>
-            <th>Strike Outs</th>
-        </tr>
-    </thead>
-    <tbody>
-        <?php
-            // Display data from table
-            if($result->num_rows == 0){
-                echo '<tr><td colspan = "6">No information returned.  Please popluate the table. <a href="AngiePopulateTable.php" style="color: white;">Populate Table</a></td></tr>';
-            } else {
-                while($row = $result->fetch_assoc()){
-                    echo "<tr><td>" . $row['firstName'] . ' ' . $row['lastName'] . "</td><td>" . $row['school'] . ' ' . $row['mascot'] . "</td><td>" . $row['wins'] . "</td>";
-                    echo "<td>" . $row['era'] . "</td><td>" . $row['shutOuts'] . "</td><td>" . $row['strikeOuts'] . "</td></tr>\n";
-                }
-            }
-            
+                ?>
+            </tbody>
+        </table>
+    </div>  <!--close table-col-->
+
+<?php
 }catch (Exception $e){
   ?>
-  <div class="errorMessage" style="position: absolute; top: 125px; left: 0; right: 0; bottom: 0; max-width: 100%; height: 100%;">
+  <div class="errorMessage" style="position: absolute; top: 200px; left: 0; right: 0; bottom: 0; max-width: 100%; height: 100%;">
   The table does not exist.  Please create the table.  <a href="AngieCreateTable.php" style="color: white;">Create Table</a></div>
-  <?php
+<?php
 }
 
 if($conn->query($sql) === TRUE){
@@ -117,7 +120,12 @@ if($conn->query($sql) === TRUE){
 mysqli_close($conn);
 ?>
 
+</div>  <!--main-->
+</div>  <!--close scroll-->
+
 <?php include 'Footer.php' ?>
 
 </body>
+
 </html>
+<!--</div>-->
