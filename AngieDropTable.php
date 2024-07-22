@@ -30,7 +30,7 @@ This program uses MySQLi and PHP to drop a database table used to store softball
 
 <?php
 // Create connection to database
-$serverName = "localhost";
+$serverName = "softball.cpgs6e480h7a.us-east-2.rds.amazonaws.com";
 $userName = "student1";
 $password = "pass";
 $dbName = "baseball_01";
