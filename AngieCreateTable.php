@@ -42,7 +42,7 @@ if($conn->connect_error){
 }
 
 //Create database
-$sql = "CREATE DATABASE IF NOT EXISTS" softball;
+$sql = "CREATE DATABASE IF NOT EXISTS softball";
 $sql = "CREATE USER 'student1'@localhost IDENTIFIED BY 'atracy23baseball'";
 
 
