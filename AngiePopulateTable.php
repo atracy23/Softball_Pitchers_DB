@@ -26,7 +26,7 @@ This program uses MySQLi and PHP to populate a database table with softball pitc
   <nav class="overlay">
     <div class="navbar-container">
       <div class="logo">
-        <img src="http://localhost/CSD_440/Database-baseball_01/logo.jpg" alt="Logo">
+        <img src="logo.jpg" alt="Logo">
         <h2 class="title">Softball Pitchers and Stats</h2>
       </div>
       <ul class="navbar">
@@ -43,11 +43,10 @@ This program uses MySQLi and PHP to populate a database table with softball pitc
 try{
 
 // Create connection to database
-$serverName = "localhost";
+$serverName = "softball.cpgs6e480h7a.us-east-2.rds.amazonaws.com";
 $userName = "student1";
-$password = "pass";
-$dbName = "baseball_01";
-
+$password = "atracy23baseball";
+$dbName = "softball";
 $conn = new mysqli($serverName, $userName, $password, $dbName);
 if($conn->connect_error){
     die("Connection failed: $conn->connect_error");
