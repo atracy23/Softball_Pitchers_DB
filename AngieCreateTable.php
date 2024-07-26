@@ -34,7 +34,7 @@ This program uses MySqli and PHP to create a table to hold a few stats on ten of
 $serverName = "softball.cpgs6e480h7a.us-east-2.rds.amazonaws.com";
 $userName = "student1";
 $password = "atracy23baseball";
-$dbName = "AWS_SoftballDB";
+$dbName = "softball";
 
 $conn = new mysqli($serverName, $userName, $password, $dbName);
 if($conn->connect_error){
@@ -42,8 +42,8 @@ if($conn->connect_error){
 }
 
 //Create database
-$sql = "CREATE DATABASE IF NOT EXISTS softball";
-$sql = "CREATE USER 'student1'@localhost IDENTIFIED BY 'atracy23baseball'";
+//$sql = "CREATE DATABASE IF NOT EXISTS softball";
+//$sql = "CREATE USER 'student1'@localhost IDENTIFIED BY 'atracy23baseball'";
 
 
 // Create table holding players and stats
