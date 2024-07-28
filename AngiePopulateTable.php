@@ -43,14 +43,8 @@ This program uses MySQLi and PHP to populate a database table with softball pitc
 try{
 
 // Create connection to database
-$serverName = "softball.cpgs6e480h7a.us-east-2.rds.amazonaws.com";
-$userName = "student1";
-$password = "atracy23baseball";
-$dbName = "softball";
-$conn = new mysqli($serverName, $userName, $password, $dbName);
-if($conn->connect_error){
-    die("Connection failed: $conn->connect_error");
-}
+include 'db_connection.php';
+$conn = OpenCon();
 
 try{
 
@@ -111,8 +105,8 @@ try{
   The table does not exist.  Please create the table.  <a href="AngieCreateTable.php" style="color: white;">Create Table</a></div>
   <?php
 }
-  //mysqli_stmt_close($stmt);
-  mysqli_close($conn);
+  
+  CloseCon($conn);
 ?>
 <div class="image-text-container">
 <!--      <div class="overlay2">          -->

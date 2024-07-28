@@ -31,20 +31,12 @@ This program uses MySqli and PHP to create a table to hold a few stats on ten of
 
 <?php
 // Create connection to database
-$serverName = "softball.cpgs6e480h7a.us-east-2.rds.amazonaws.com";
-$userName = "student1";
-$password = "atracy23baseball";
-$dbName = "softball";
-
-$conn = new mysqli($serverName, $userName, $password, $dbName);
-if($conn->connect_error){
-    die("Connection failed: " . $conn->connect_error);
-}
+include 'db_connection.php';
+$conn = OpenCon();
 
 //Create database
-//$sql = "CREATE DATABASE IF NOT EXISTS softball";
-//$sql = "CREATE USER 'student1'@localhost IDENTIFIED BY 'atracy23baseball'";
-
+$sql = "CREATE DATABASE IF NOT EXISTS softball";
+$sql = "CREATE USER 'student1'@localhost IDENTIFIED BY 'atracy23baseball'";
 
 // Create table holding players and stats
 $tableSQL = "CREATE TABLE IF NOT EXISTS sbPlayers (
@@ -77,7 +69,7 @@ try{
   $error = $e->getMessage();
   ?>
   <div class='errorMessages'
-  style='margin-top: 750px; background-image: linear-gradient(deepskyblue, white); text-align: center; font-size:large; color: darkblue;
+  style='margin-top: 750px; margin-left: -200px; background-image: linear-gradient(deepskyblue, white); text-align: center; font-size:large; color: darkblue;
       height: fit-content; padding: 10px; max-width: fit-content; border: darkblue; z-index: 15; font-size: 30px; border-radius: 4px;'><?php echo $error; ?></div>
   <?php
 }
@@ -136,7 +128,7 @@ try{
       </div>
     </div>
 <?php
-$conn->close();
+CloseCon($conn);
 
 ?>
 

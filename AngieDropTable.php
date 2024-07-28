@@ -30,6 +30,9 @@ This program uses MySQLi and PHP to drop a database table used to store softball
 
 <?php
 // Create connection to database
+include 'db_connection.php';
+$conn = OpenCon();
+/*
 $serverName = "softball.cpgs6e480h7a.us-east-2.rds.amazonaws.com";
 $userName = "student1";
 $password = "pass";
@@ -39,21 +42,25 @@ $conn = new mysqli($serverName, $userName, $password, $dbName);
 if($conn->connect_error){
     die("Connection failed: $conn->connect_error");
 }
+    */
 ?>
 
 <div class="messages" style="border-radius: 4px; top: 150px;">
 <?php
 // Drop database table
 $sql = "DROP TABLE IF EXISTS sbPlayers";
+
 if($conn->query($sql) === TRUE){
     echo "Table dropped successfully";
 } else {
     echo "Error dropping table: $conn->error";
 }
+
+
 ?>
 </div>
 <?php
-$conn->close();
+CloseCon($conn);
 
 ?>
 <div class="image-text-container">

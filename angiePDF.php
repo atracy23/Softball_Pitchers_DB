@@ -13,15 +13,8 @@ This file creates a PDF to display all of the data stored in the database in a t
 <?php
 
 // Create connection to database
-$serverName = "softball.cpgs6e480h7a.us-east-2.rds.amazonaws.com";
-$userName = "student1";
-$password = "atracy23baseball";
-$dbName = "softball";
-
-$conn = new mysqli($serverName, $userName, $password, $dbName);
-if($conn->connect_error){
-    die("Connection failed: " . $conn->connect_error);
-}
+include 'db_connection.php';
+$conn = OpenCon();
 
 // Query the database table
 $sql = "SELECT * FROM sbPlayers";
@@ -119,8 +112,10 @@ $pdf -> SetTextColor(0, 0, 0);
 
 
 
-mysqli_close($conn);
+
 
 $pdf -> Output();
 ob_end_clean();
+CloseCon($conn);
+
 ?>

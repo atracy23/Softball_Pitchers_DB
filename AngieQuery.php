@@ -98,36 +98,20 @@ This program uses MySqli and PHP to query a database table holding a few stats o
   }
 
   // Create connection to database
-  $serverName = "softball.cpgs6e480h7a.us-east-2.rds.amazonaws.com";
-  $userName = "student1";
-  $password = "atracy23baseball";
-  $dbName = "softball";
-
-  $conn = new mysqli($serverName, $userName, $password, $dbName);
-  if($conn->connect_error){
-    die("Connection failed: " . $conn->connect_error);
-  }
+  include 'db_connection.php';
+  $conn = OpenCon();
 
   // Query the database table
   $result = $conn->query($selectStatementString);
+
+  if($result === NULL){
+    ?>
+    <div class="errorMessage" style="position: absolute; top: 200px; left: 0; right: 0; bottom: 0; max-width: 100%; height: 100%;">
+  The table does not exist.  Please create the table.  <a href="AngieCreateTable.php" style="color: white;">Create Table</a></div>
+  <?php
+  }
   
-  if($conn->query($selectStatementString) === TRUE){
-    echo "<div class='messages';>";
-    echo "Table sbPlayers data selected successfully";
-    echo "</div>";
-  } else {
-    echo "<div class='errorMessages;'>";
-
-      "Error selecting data from table: " . $conn->error;
-      echo "</div>";
-  }
-
-  $conn->close();  
-}catch(Exception $e){
-  $error = $e->getMessage();
-    ?><div class="errorMessage">Please select at least one field to be included in the results of the search. $error</div>
-    <?php
-  }
+  CloseCon($conn);
 
 ?>
 <!--  Images to be displayed on screen  -->
@@ -198,8 +182,16 @@ This program uses MySqli and PHP to query a database table holding a few stats o
       </div>
     <?php
     }
+
+ }catch(Exception $e){
+  $error = $e->getMessage();
     ?>
- 
+    <div class="errorMessage" style="position: absolute; top: 200px; left: 0; right: 0; bottom: 0; max-width: 100%; height: 100%;">
+    The table does not exist.  Please create the table.  <a href="AngieCreateTable.php" style="color: white;">Create Table</a></div>
+    <?php
+  }
+
+?>
 <?php include 'Footer.php' ?>
 
 </body>

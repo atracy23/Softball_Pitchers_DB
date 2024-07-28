@@ -41,15 +41,9 @@ This program uses MySqli and PHP to query a database table holding a few stats o
 <?php
 
 // Create connection to database
-$serverName = "localhost";
-$userName = "student1";
-$password = "atracy23baseball";
-$dbName = "softball";
+include 'db_connection.php';
+$conn = OpenCon();
 
-$conn = new mysqli($serverName, $userName, $password, $dbName);
-if($conn->connect_error){
-    die("Connection failed: " . $conn->connect_error);
-}
 try{
 // Query the database table
 $sql = "SELECT * FROM sbPlayers";
@@ -109,15 +103,15 @@ $result = $conn->query($sql);
   The table does not exist.  Please create the table.  <a href="AngieCreateTable.php" style="color: white;">Create Table</a></div>
 <?php
 }
-
+/*
 if($conn->query($sql) === TRUE){
     echo "Table sbPlayers data selected successfully";
 } else {
     "Error selecting data from 
     table: " . $conn->error;
 }
-
-mysqli_close($conn);
+*/
+CloseCon($conn);
 ?>
 
 </div>  <!--main-->

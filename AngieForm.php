@@ -32,15 +32,8 @@ This program adds the user input of new Softball pitcher and stats to the databa
 <?php
 
 // Create connection to database
-$serverName = "softball.cpgs6e480h7a.us-east-2.rds.amazonaws.com";
-$userName = "student1";
-$password = "atracy23baseball";
-$dbName = "softball";
-
-$conn = new mysqli($serverName, $userName, $password, $dbName);
-if($conn->connect_error){
-    die("Connection failed: $conn->connect_error");
-}
+include 'db_connection.php';
+$conn = OpenCon();
 
 $sql = "INSERT INTO sbPlayers (lastName, firstName, school, mascot, wins, era, shutOuts, strikeOuts) VALUES (?, ?, ?, ?, ?, ?, ?, ?) 
 ON DUPLICATE KEY UPDATE firstName = VALUES(firstName), school = VALUES(school), mascot = VALUES(mascot), 
@@ -73,7 +66,8 @@ $sqlDisplay = "SELECT * FROM sbPlayers";
 $result = $conn->query($sqlDisplay);
 
 mysqli_stmt_close($stmt);
-mysqli_close($conn);
+
+CloseCon($conn);
 
 ?>
 
